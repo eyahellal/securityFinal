@@ -18,6 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @Entity
+@Table(name = "app_user")
 public class User {
 
         @Id
