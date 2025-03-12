@@ -12,31 +12,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-@Entity
-public class Role {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String name;
-    @CreatedDate
-    private Date creationDate;
-    @CreatedBy
-    private Long creatorId;
-    @LastModifiedDate
-    private Date lastModifiedDate;
-    @LastModifiedBy
-    private String lastModifierId;
 
-    @ManyToMany(mappedBy = "roles")
-    private List<User> users = new ArrayList<>();
-/*
-    @ManyToMany(mappedBy = "roles")
-    private List<Privilege> privileges = new ArrayList<>();
-**/
+public enum Role {
+
+    CITOYEN,ADMIN,AGENT
 }
 
