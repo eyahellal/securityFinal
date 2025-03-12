@@ -46,16 +46,10 @@ public class User {
                 this.email = email;
                 this.password = password;
         }
-        @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-        @JoinTable(name = "users_roles" , joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-                inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-        private List<Role> roles = new ArrayList<>();
-/*
-        @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-        @JoinTable(name = "users_products" , joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-                inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
-        private List<Product> products = new ArrayList<>();
-*/
-        public User(String email, String password, Collection<GrantedAuthority> grantedAuthorities) {
+        @Enumerated(EnumType.STRING)
+        @Column(nullable = true)
+        private Role role;
+
+
         }
-}
+
